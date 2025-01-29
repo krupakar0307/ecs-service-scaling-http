@@ -86,3 +86,10 @@ Once Metrics alarms are created in cloudwatch, now time to configure scaling-pol
 Once scaling policies are configured as per above, the scaling works as if there is no requests/zero-requests in 5 minutes, servce scales to `0`. if there is one request starts, service starts scale-up and will be available in `~2`minutes
 
 ----------------
+
+- During No Requests :
+![scale-up when requests starts](./images/scale-up.png)
+In above image, app was in down state which is 503, when reqests starts increase, `http_503` alarm is triggered to scale-up and app is available.
+
+Similarly, when requests are zero, `requestcount` alarm triggered to scale-down to 0 tasks.
+![scale-down during zero requests](./images/scale-down.png)
